@@ -3,7 +3,7 @@ import {ErrorHandler} from '../../plumbing/errors/errorHandler';
 import {Authenticator} from '../../plumbing/oauth/authenticator';
 import {Company} from '../entities/company';
 import {CompanyTransactions} from '../entities/companyTransactions';
-import {UserInfoClaims} from '../entities/userInfoClaims';
+import {UserInfo} from '../entities/userInfo';
 import {AxiosUtils} from '../../plumbing/utilities/axiosUtils';
 
 /*
@@ -43,9 +43,9 @@ export class ApiClient {
     /*
      * We download user info from the API rather than using the id token
      */
-    public async getUserInfo(): Promise<UserInfoClaims> {
+    public async getUserInfo(): Promise<UserInfo> {
 
-        return await this._callApi('userinfo', 'GET') as UserInfoClaims;
+        return await this._callApi('userinfo', 'GET') as UserInfo;
     }
 
     /*

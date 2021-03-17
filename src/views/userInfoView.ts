@@ -19,11 +19,11 @@ export class UserInfoView {
         }
 
         // Make the API call to get user info
-        const claims = await apiClient.getUserInfo();
+        const userInfo = await apiClient.getUserInfo();
 
         // Render results
-        if (claims && claims.givenName && claims.familyName) {
-            const text = mustache.render('{{givenName}} {{familyName}}', claims);
+        if (userInfo && userInfo.givenName && userInfo.familyName) {
+            const text = mustache.render('{{givenName}} {{familyName}}', userInfo);
             DomUtils.text('#username', text);
         }
     }
